@@ -1,13 +1,13 @@
 ''' Predict and visualize.
 '''
+import argparse
+import matplotlib.pyplot as plt
 import open3d as o3d
-from models import PointNetCls
-from utils import classes_dict, read_pointnet_colors
 import torch
 from data import PartDataset
-import matplotlib.pyplot as plt
-import numpy as np
-import argparse
+from models import PointNetCls
+from utils import classes_dict, read_pointnet_colors
+
 
 def init_argparse() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(

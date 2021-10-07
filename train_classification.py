@@ -1,15 +1,17 @@
-from utils import classes_dict
+import argparse
+import sys
+
 from datasets import PartDataset
 from models import PointNetCls
+from utils import classes_dict
 
 import torch 
-import torch.nn.parallel
 import torch.optim as optim
+import torch.nn.parallel
 from torch.autograd import Variable
-import argparse
 import torch.nn.functional as F
 from torch.utils.tensorboard import SummaryWriter
-import sys
+
 
 def init_argparse() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(

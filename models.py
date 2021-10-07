@@ -6,9 +6,7 @@ import torch.nn.functional as F
 
 
 class STN3d(nn.Module):
-    """
-    T-Net Model. 
-    STN stands for Spatial Transformer Network.
+    """ STN module, used in the T-Net model.
     """
     def __init__(self, num_points = 2500):
         super(STN3d, self).__init__()
@@ -54,8 +52,6 @@ class STN3d(nn.Module):
 
 class PointNetfeat(nn.Module):
     """
-    This is the T-Net for Feature Transform.
-    There is also MLP part 64,128,1024.
     """
     def __init__(self, num_points = 2500, global_feat = True):
         super(PointNetfeat, self).__init__()
@@ -92,8 +88,7 @@ class PointNetfeat(nn.Module):
 #############
 
 class PointNetCls(nn.Module):
-    """
-    Network for Classification: 512, 256, K.
+    """ Classification part of the PointNet model.
     """
     def __init__(self, num_points = 2500, k = 2):
         super(PointNetCls, self).__init__()
@@ -118,7 +113,6 @@ class PointNetCls(nn.Module):
 
 class PointNetDenseCls(nn.Module):
     """
-    Network for Segmentation
     """
     def __init__(self, num_points = 2500, k = 2):
         super(PointNetDenseCls, self).__init__()
