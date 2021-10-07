@@ -1,20 +1,9 @@
-from __future__ import print_function
-import torch.utils.data as data
-from PIL import Image
 import os
 import os.path
-import errno
-import torch
-import json
-import codecs
 import numpy as np
-import progressbar
-import sys
-import torchvision.transforms as transforms
-import argparse
-import json
 import open3d
-
+import torch
+import torch.utils.data as data
 
 class PartDataset(data.Dataset):
     def __init__(self, root, npoints = 2500, classification = False, class_choice = None, train = True):
@@ -70,10 +59,8 @@ class PartDataset(data.Dataset):
             open3d.io.read_point_cloud(fn[1], format='xyz').points,
             dtype=np.float32)
         seg = np.loadtxt(fn[2]).astype(np.int64)
-        #print(point_set.shape, seg.shape)
 
         choice = np.random.choice(len(seg), self.npoints, replace=True)
-        #resample
         point_set = point_set[choice, :]
         seg = seg[choice]
         point_set = torch.from_numpy(point_set)
