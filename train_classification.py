@@ -1,5 +1,5 @@
 from utils import classes_dict
-from dataset import PartDataset
+from datasets import PartDataset
 from models import PointNetCls
 
 import torch 
