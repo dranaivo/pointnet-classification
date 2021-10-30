@@ -4,7 +4,7 @@ import argparse
 import matplotlib.pyplot as plt
 import open3d as o3d
 import torch
-from data import PartDataset
+from datasets import PartDataset
 from models import PointNetCls
 from utils import classes_dict, read_pointnet_colors
 
@@ -88,7 +88,7 @@ def main():
     # Inference and visualization
     index = args.index
     print('[Sample {} / {}]'.format(index, len(test_dataset_seg)))
-    point_set, seg = test_dataset_seg[index]        
+    point_set, seg = test_dataset_seg[index]   
     
     pred_prob = classifier_fn(point_set)
     pred_prob = pred_prob.squeeze()
@@ -100,7 +100,7 @@ def main():
     plt.xticks(list(classes_dict.values()), list(classes_dict.keys()),rotation=90)
     plt.xlabel('Classes')
     plt.ylabel('Probabilities')
-    plt.plot(list(classes_dict.values()), pred_prob.detach().numpy())
+    plt.bar(list(classes_dict.values()), pred_prob.detach().numpy())
     plt.show()
 
     # Colorized point cloud
