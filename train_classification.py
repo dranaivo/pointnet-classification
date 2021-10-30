@@ -141,7 +141,6 @@ def main():
             loss, acc = test_step(classifier, device, points, target)
             test_loss += loss
             test_acc += acc
-            # TODO: use \r to refresh display
             sys.stdout.write('\r[%d: %d/%d] %s loss: %f accuracy: %f' %(epoch, j, num_batch, blue('test'), loss, acc))
         print("")
         test_loss = test_loss / num_batch
