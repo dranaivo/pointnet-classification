@@ -6,7 +6,7 @@ import torch
 import torch.utils.data as data
 
 class PartDataset(data.Dataset):
-    def __init__(self, root, npoints = 2500, classification = False, class_choice = None, train = True):
+    def __init__(self, root, npoints=2500, classification=False, class_choice=None, train=True):
         self.npoints = npoints
         self.root = root
         self.catfile = os.path.join(self.root, 'synsetoffset2category.txt')
